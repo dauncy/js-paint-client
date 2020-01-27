@@ -1,7 +1,7 @@
 
 function dropDownListen() {
   let coloringBookArray = [ ]
-  fetch(`${challenges}`)
+  fetch(`${API_ROOT}challenges`)
   .then(response => response.json())
   .then(json => loadColoringBooks(json))
 
