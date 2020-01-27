@@ -1,4 +1,4 @@
-const API_ROOT = "https://js-paint-server.herokuapp.com/"
+
 const mainnav = document.createElement("div")
 mainnav.setAttribute("class", "mainnav")
 document.body.prepend(mainnav)

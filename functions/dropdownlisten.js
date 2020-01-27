@@ -1,4 +1,4 @@
-const API_ROOT = "https://js-paint-server.herokuapp.com/"
+
 function dropDownListen() {
   let coloringBookArray = [ ]
   fetch(`${challenges}`)
