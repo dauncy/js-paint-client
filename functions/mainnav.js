@@ -1,3 +1,4 @@
+const API_ROOT = "https://js-paint-server.herokuapp.com/"
 const mainnav = document.createElement("div")
 mainnav.setAttribute("class", "mainnav")
 document.body.prepend(mainnav)
@@ -67,7 +68,7 @@ function loadGallery(event){
         document.getElementById("user-profile").style.display = "none"
         let show = document.getElementById("all-drawings")
         show.style.display = "block"
-        fetch("http://localhost:3000/drawings")
+        fetch(`${API_ROOT}drawings`)
         .then(response => response.json())
         .then(json => {allDrawings = json;
         loadDrawings(allDrawings)})
@@ -116,7 +117,7 @@ function handleLikeClick(event){
     likeButton.src = "https://files.slack.com/files-pri/T02MD9XTF-FSUGLQV6X/1315px-love_or_heart_transparent.png"
     likeButton.style.color = "red"
     likeButton.setAttribute("Clicked" ,"red")
-    fetch("http://localhost:3000/likes", {
+    fetch(`${API_ROOT}likes`, {
         method: "POST",
         headers: { 'Content-Type': 'application/json',
         'Accept': 'application/json'},
@@ -126,7 +127,7 @@ function handleLikeClick(event){
     else {
        likeButton.removeAttribute("Clicked")
         likeButton.src = "https://files.slack.com/files-pri/T02MD9XTF-FSVR6QS57/1315px-love_or_heart_transparent-2.png"
-        fetch(`http://localhost:3000/likes/${like.id}`, {
+        fetch(`${API_ROOT}likes/${like.id}`, {
         method: "DELETE",
         headers: { 'Content-Type': 'application/json',
         'Accept': 'application/json'}

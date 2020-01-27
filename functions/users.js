@@ -6,6 +6,8 @@ let allUsers = [ ];
 
 let currentUserDrawings = [ ];
 
+const API_ROOT = "https://js-paint-server.herokuapp.com/"
+
 
 
 // set to toggle displayy blocks
@@ -21,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // make request to database to front-load all users
 function fetchAllUsers(){
-    fetch("http://localhost:3000/users")
+    fetch(API_ROOT + 'users')
     .then(response => response.json())
     .then(json => populateAllUsers(json))
 }
@@ -81,7 +83,7 @@ function userSignIn(event){
     
     let usernameValue = document.getElementById("username-input").value
    
-    fetch(`http://localhost:3000/users/${usernameValue}`)
+    fetch(`${API_ROOT}users/${usernameValue}`)
     
     .then(response => response.json())
     .then(json => authenticateUser(json))
@@ -218,7 +220,7 @@ function verifyUser(event){
 }
 function postUser(usernameInput, userNameInput){
     
-    fetch("http://localhost:3000/users", {
+    fetch(`${API_ROOT}users`, {
         method: "POST",
         headers: {
           'Content-Type': 'application/json',
@@ -244,7 +246,7 @@ function editProfile(event){
 }
 function deleteUser(event){
     event.preventDefault()
-    fetch(`http://localhost:3000/users/${currentUser.username}`, {
+    fetch(`${API_ROOT}users/${currentUser.username}`, {
         method: "DELETE"
     }).then(response => response.json())
     .then(json => {console.log(json);
@@ -261,7 +263,7 @@ function updateUsername(event){
         
         alert("This username has already been taken")}
     else {
-        fetch(`http://localhost:3000/users/${currentUser.username}`, {
+        fetch(`${API_ROOT}users/${currentUser.username}`, {
             method: "PATCH",
             headers: {
                 'Content-Type': 'application/json',
@@ -321,7 +323,7 @@ function saveDrawing(event){
     let canvas = document.getElementById("draw")
      let dataURL = canvas.toDataURL()
      
-     fetch("http://localhost:3000/drawings", {
+     fetch(`${API_ROOT}drawings`, {
        method: "POST",
        headers: {
          'Content-Type': 'application/json',
@@ -358,7 +360,7 @@ function deleteDrawing(event){
     event.preventDefault()
     
     const drawingId = event.target.id
-    fetch(`http://localhost:3000/drawings/${drawingId}`, {
+    fetch(`${API_ROOT}drawings/${drawingId}`, {
         method: "DELETE"
         }
     )
