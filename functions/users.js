@@ -101,9 +101,7 @@ function authenticateUser(json) {
          document.getElementById("username-input").value = null
         } else {
             currentUser = json;
-            let login = document.getElementById("logoutButton")
-            login.innerText = "Logout"
-            login.onclick = (event) => logout(event)
+           
            
             renderUserProfile(currentUser)
         }
@@ -112,7 +110,9 @@ function authenticateUser(json) {
 function renderUserProfile(currentUser){
     
     
-   
+    let login = document.getElementById("logoutButton")
+            login.innerText = "Logout"
+            login.onclick = (event) => logout(event)
     if(createUserAccount){
         document.getElementById("sign-up-container").style.display = "none"
     }
@@ -213,10 +213,9 @@ function verifyUser(event){
         document.getElementById("user-name-value").value = ""
         document.getElementById('username-value').value = ""
     } else {
+       
+        
         postUser(usernameInput, userNameInput)
-        let logout =  document.getElementById("logoutButton")
-        logout.innetText = "Logout"
-        logout.onClick =(event) =>{ logout(event)}
     }
 
 
