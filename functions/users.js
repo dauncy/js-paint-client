@@ -214,6 +214,9 @@ function verifyUser(event){
         document.getElementById('username-value').value = ""
     } else {
         postUser(usernameInput, userNameInput)
+        let logout =  document.getElementById("logoutButton")
+        logout.innetText = "Logout"
+        logout.onClick =(event) =>{ logout(event)}
     }
 
 
