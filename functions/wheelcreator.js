@@ -91,11 +91,11 @@ function wheelCreator() {
     eraser.setAttribute("id", "eraser");
     wheelId.append(eraser);
   
-    let typing = document.createElement("img");
-    typing.src =
-      "https://www.timelesswroughtiron.com/v/vspfiles/photos/UGHT-IRON-HOUSE-LETTER-T-LET-T-2T.jpg";
-    typing.setAttribute("id", "typing");
-    wheelId.append(typing);
+    // let typing = document.createElement("img");
+    // typing.src =
+    //   "https://www.timelesswroughtiron.com/v/vspfiles/photos/UGHT-IRON-HOUSE-LETTER-T-LET-T-2T.jpg";
+    // typing.setAttribute("id", "typing");
+    // wheelId.append(typing);
   
     let restart = document.createElement("img");
     restart.src = "https://image.flaticon.com/icons/png/512/61/61848.png";
