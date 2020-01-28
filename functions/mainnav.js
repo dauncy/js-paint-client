@@ -83,7 +83,7 @@ function loadDrawings(allDrawings){
         let likeButton = document.createElement("img")
         likeButton.setAttribute("id", `${drawing.id}`)
        
-        likeButton.src = "https://files.slack.com/files-pri/T02MD9XTF-FSVR6QS57/1315px-love_or_heart_transparent-2.png" 
+        likeButton.src = "./assets/unlike.png" 
         likeButton.style.cssText ="width:5%;"
         if (likeButton.getAttribute("added") === null){
         likeButton.addEventListener("click", event => handleLikeClick(event))}
@@ -114,7 +114,7 @@ function handleLikeClick(event){
     if (likeButton.getAttribute("added") === null) {
     likeButton.setAttribute("added", "true")}
     if (likeButton.getAttribute("Clicked") === null ){
-    likeButton.src = "https://files.slack.com/files-pri/T02MD9XTF-FSUGLQV6X/1315px-love_or_heart_transparent.png"
+    likeButton.src = "./assets/like.png"
     likeButton.style.color = "red"
     likeButton.setAttribute("Clicked" ,"red")
     fetch(`${API_ROOT}likes`, {
@@ -126,7 +126,7 @@ function handleLikeClick(event){
     .then(json => { like = (json)})}
     else {
        likeButton.removeAttribute("Clicked")
-        likeButton.src = "https://files.slack.com/files-pri/T02MD9XTF-FSVR6QS57/1315px-love_or_heart_transparent-2.png"
+        likeButton.src = "./assets/unlike.png"
         fetch(`${API_ROOT}likes/${like.id}`, {
         method: "DELETE",
         headers: { 'Content-Type': 'application/json',
