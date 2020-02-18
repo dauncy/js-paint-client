@@ -57,6 +57,8 @@ function signUserIn(){
             let loginForm = document.getElementById("signIn")
             loginForm.style.display = "block"
             document.getElementById("log-in-container").style.display = "block"
+            
+           
         }
         
     }
@@ -71,12 +73,13 @@ function signUserIn(){
         choiceForm.style.display = "none";
         heart.style.display = "none";
     } 
+    
     signInForm.addEventListener("submit", event => userSignIn(event))
 
 }
 
 function userSignIn(event){
-   
+    document.getElementById('loader').style.display="block"
     
     event.preventDefault()
     
@@ -90,18 +93,17 @@ function userSignIn(event){
     
 }
 
+
 function authenticateUser(json) {
-    
-    
-    if (json.error || document.getElementById("username-input").value == ""){
+     if (json.error|| document.getElementById("username-input").value == ""){
         if(confirm("this user doesn't exist would you like to create an account?")){
             createUserAccount = !createUserAccount
             createUser()
         }
          document.getElementById("username-input").value = null
         } else {
-            currentUser = json;
-           
+            
+           currentUser  = json
            
             renderUserProfile(currentUser)
         }
@@ -109,12 +111,13 @@ function authenticateUser(json) {
 
 function renderUserProfile(currentUser){
     
-    
+    document.getElementById('loader').style.display="block"
     let login = document.getElementById("logoutButton")
             login.innerText = "Logout"
             login.onclick = (event) => logout(event)
     if(createUserAccount){
         document.getElementById("sign-up-container").style.display = "none"
+      
     }
     
     currentUserDrawings = currentUser.drawings
@@ -131,7 +134,7 @@ function renderUserProfile(currentUser){
              };
              addElementListeners(renderUserProfileEventListenerHandlers, "click");
              
-            
+             document.getElementById('loader').style.display="none"    
 }
 
 function renderDrawing(currentUserDrawings){
@@ -199,7 +202,7 @@ function createUser(){
 }
 
 function verifyUser(event){
-
+    
     event.preventDefault()
     let userNameInput = document.getElementById("user-name-value").value
     let usernameInput = document.getElementById('username-value').value
