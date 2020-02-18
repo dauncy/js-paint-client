@@ -47,7 +47,7 @@ function handleChoiceClick(event){
 }
 
 function signUserIn(){
-    
+    document.getElementById("additionalSignUp").addEventListener("click", (event) => { createUserAccount = !createUserAccount; createUser(event)} )
     if(createUserAccount){
         createUserAccount = !createUserAccount
         document.getElementById("sign-up-container").style.display = "none"
@@ -57,7 +57,7 @@ function signUserIn(){
             let loginForm = document.getElementById("signIn")
             loginForm.style.display = "block"
             document.getElementById("log-in-container").style.display = "block"
-            
+           
            
         }
         
@@ -187,6 +187,7 @@ function renderDrawing(currentUserDrawings){
 
 
 function createUser(){
+    let heyoh = document.getElementById("heyoH")
     let signInForm = document.getElementById("signIn")
     let postUserForm = document.getElementById("create-user")
     const choiceForm = document.getElementById("choice-container")
@@ -197,6 +198,8 @@ function createUser(){
         heart.style.display = "none";
         signUpForm.style.display = "block";
         signInForm.style.display = "none"
+        heyoh.style.display = "none"
+        document.getElementById("additionalSignUp").style.display = "none"
     }
  postUserForm.addEventListener("submit", event => verifyUser(event))
 }
