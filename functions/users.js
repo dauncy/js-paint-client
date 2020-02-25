@@ -110,7 +110,8 @@ function authenticateUser(json) {
 }
 
 function renderUserProfile(currentUser){
-    
+    document.getElementById("log-in-container").style.display = "none"
+    document.getElementById("sign-up-container").style.display = "none"
     document.getElementById('loader').style.display="block"
     let login = document.getElementById("logoutButton")
             login.innerText = "Logout"
@@ -124,7 +125,7 @@ function renderUserProfile(currentUser){
    
     renderDrawing(currentUserDrawings)
     
-    document.getElementById("log-in-container").style.display = "none"
+    
     document.getElementById("user-profile").style.display = "block"
     document.getElementById("profile-name").innerText = currentUser.name
             const renderUserProfileEventListenerHandlers = {
