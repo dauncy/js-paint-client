@@ -79,6 +79,8 @@ function signUserIn(){
 }
 
 function userSignIn(event){
+
+    document.getElementById("log-in-container").style.display = "none"
     document.getElementById('loader').style.display="block"
     
     event.preventDefault()
@@ -110,8 +112,7 @@ function authenticateUser(json) {
 }
 
 function renderUserProfile(currentUser){
-    document.getElementById("log-in-container").style.display = "none"
-    document.getElementById("sign-up-container").style.display = "none"
+   
     document.getElementById('loader').style.display="block"
     let login = document.getElementById("logoutButton")
             login.innerText = "Logout"
@@ -228,7 +229,7 @@ function verifyUser(event){
 
 }
 function postUser(usernameInput, userNameInput){
-    
+    document.getElementById("sign-up-container").style.display = "none"
     fetch(`${API_ROOT}users`, {
         method: "POST",
         headers: {
